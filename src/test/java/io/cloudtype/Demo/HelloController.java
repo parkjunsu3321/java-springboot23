@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://web-reaction-hkty2alqiwtpix.sel4.cloudtype.app/")
 public class HelloController {
 
     @GetMapping("/hello")
