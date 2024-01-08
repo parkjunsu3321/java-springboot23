@@ -1,3 +1,4 @@
+package io.cloudtype.Demo;
 // WebConfig.java
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
