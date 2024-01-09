@@ -1,3 +1,4 @@
+package io.cloudtype.Demo;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 ⠀⠀
