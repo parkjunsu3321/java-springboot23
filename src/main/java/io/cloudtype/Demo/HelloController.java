@@ -16,7 +16,7 @@ public class HelloController {
     @GetMapping("/fieldtest")
     public String fetchDataFromDB(@RequestParam(name = "input", required = false) String inputValue)
     {
-        return "inputValue";
+        return inputValue;
     }
     @GetMapping("/db")
     public void joindb() 
