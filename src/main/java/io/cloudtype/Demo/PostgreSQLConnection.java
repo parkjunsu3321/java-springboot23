@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class PostgreSQLConnection {
 	public PostgreSQLConnection(String id, String name, String pass)
 	{
-    	Join(id, name, pass);
+    	Join("3213", "이상한", "aaa3321");
 	}
 	public void Join(String id, String name, String pass)
 	{
