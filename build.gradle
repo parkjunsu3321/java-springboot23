@@ -21,3 +21,7 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+dependencies {
+    implementation files('libs/postgresql-42.7.1.jar')
+}
