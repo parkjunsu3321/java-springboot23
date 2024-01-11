@@ -1,4 +1,5 @@
 package io.cloudtype.Demo;
+import io.cloudtype.Demo.PostgreSQLConnection;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ public class HelloController {
     @GetMapping("/db")
     public void joindb() 
     {
-        
+        new PostgreSQLConnection();
     }
     
     @GetMapping("/test")
