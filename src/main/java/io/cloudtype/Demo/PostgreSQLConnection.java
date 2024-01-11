@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class PostgreSQLConnection {
-	public PostgreSQLConnection(String id, String name, String pass)
+	public PostgreSQLConnection()
 	{
     	Join("3213", "이상한", "aaa3321");
 	}
