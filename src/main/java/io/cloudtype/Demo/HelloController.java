@@ -13,7 +13,11 @@ public class HelloController {
     public String getHello() {
         return "good";
     }
-
+    @GetMapping("/fieldtest")
+    public String fetchDataFromDB(@RequestParam(name = "input", required = false) String inputValue)
+    {
+        return "inputValue";
+    }
     @GetMapping("/db")
     public void joindb() 
     {
