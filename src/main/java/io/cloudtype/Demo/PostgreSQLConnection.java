@@ -1,5 +1,4 @@
-package ex;
-
+package io.cloudtype.Demo;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
