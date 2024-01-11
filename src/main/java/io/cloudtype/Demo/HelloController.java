@@ -13,6 +13,12 @@ public class HelloController {
         return "good";
     }
 
+    @GetMapping("/db")
+    public void joindb() 
+    {
+        
+    }
+    
     @GetMapping("/test")
     public String gettest() {
         return "test";
