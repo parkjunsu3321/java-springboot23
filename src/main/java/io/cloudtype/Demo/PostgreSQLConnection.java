@@ -5,10 +5,19 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class PostgreSQLConnection {
+	String id, pass;
 	public PostgreSQLConnection()
 	{
-    	Join("3213", "이상한", "aaa3321");
+    		Join("3213", "이상한", "aaa3321");
 	}
+
+	public PostgreSQLConnection(String id, String pass)
+	{
+    		this.id = id;
+		this.pass = pass;
+	}
+	
+	
 	public void Join(String id, String name, String pass)
 	{
 		String url = "jdbc:postgresql://svc.sel4.cloudtype.app:32752/reaction_db";
