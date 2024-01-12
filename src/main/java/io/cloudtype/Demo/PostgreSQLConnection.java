@@ -2,10 +2,11 @@ package io.cloudtype.Demo;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class PostgreSQLConnection {
+public class PostgreSQLConnection 
+{
 	String id, password;
 	String url = "jdbc:postgresql://svc.sel4.cloudtype.app:32752/reaction_db";
         String user = "root";
@@ -83,14 +84,14 @@ public class PostgreSQLConnection {
 					
 					try (ResultSet resultSet = preparedStatement.executeQuery()) 
 					{
-						return "로그인 성공에 성공하셨습니다.";
+						return "로그인 성공";
 					}
 				}
 			}
 		}
 		catch (ClassNotFoundException | SQLException e) 
 		{
-            		return "아이디 또는 비밀번호가 일치 하지 않습니다.";
+            		return "아이디 또는 비밀번호가 틀립니다.";
         	}
 	}
 }
