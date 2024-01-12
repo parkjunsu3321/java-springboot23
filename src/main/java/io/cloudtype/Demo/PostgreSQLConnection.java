@@ -8,7 +8,7 @@ public class PostgreSQLConnection {
 	String id, password;
 	String url = "jdbc:postgresql://svc.sel4.cloudtype.app:32752/reaction_db";
         String user = "root";
-        String password = "3321";
+        String sqlpassword = "3321";
 	public PostgreSQLConnection()
 	{
     		Join("3213", "이상한", "aaa3321");
@@ -27,7 +27,7 @@ public class PostgreSQLConnection {
         	PreparedStatement preparedStatement = null;
         	try 
         	{
-            		connection = DriverManager.getConnection(url, user, password);
+            		connection = DriverManager.getConnection(url, user, sqlpassword);
             		String insertQuery = "INSERT INTO users(user_id, username, password, test, first, second, third, participation) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             		preparedStatement = connection.prepareStatement(insertQuery);
             		preparedStatement.setString(1, id);
@@ -71,7 +71,7 @@ public class PostgreSQLConnection {
 		{
 			Class.forName("org.postgresql.Driver");
 			//데이터 베이스 연결
-			try (Connection connection = DriverManager.getConnection(url, user, password)) 
+			try (Connection connection = DriverManager.getConnection(url, user, sqlpassword)) 
 			{
 				//쿼리문 적용
 				try (PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) 
