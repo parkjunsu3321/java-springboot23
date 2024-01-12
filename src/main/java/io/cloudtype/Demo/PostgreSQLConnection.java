@@ -22,7 +22,6 @@ public class PostgreSQLConnection
 		this.password = password;
 	}
 	
-	
 	public void Join(String id, String name, String pass)
 	{
         	Connection connection = null;
@@ -71,6 +70,7 @@ public class PostgreSQLConnection
 		String selectQuery = "SELECT * FROM users WHERE user_id = ? AND password = ?";
 		try
 		{
+			Class.forName("org.postgresql.Driver");
 			//데이터 베이스 연결
 			try (Connection connection = DriverManager.getConnection(url, user, sqlpassword)) 
 			{
