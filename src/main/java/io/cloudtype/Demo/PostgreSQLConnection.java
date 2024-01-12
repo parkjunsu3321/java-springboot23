@@ -6,6 +6,9 @@ import java.sql.SQLException;
 
 public class PostgreSQLConnection {
 	String id, pass;
+	String url = "jdbc:postgresql://svc.sel4.cloudtype.app:32752/reaction_db";
+        String user = "root";
+        String password = "3321";
 	public PostgreSQLConnection()
 	{
     		Join("3213", "이상한", "aaa3321");
@@ -20,19 +23,14 @@ public class PostgreSQLConnection {
 	
 	public void Join(String id, String name, String pass)
 	{
-		String url = "jdbc:postgresql://svc.sel4.cloudtype.app:32752/reaction_db";
-        String user = "root";
-        String password = "3321";
-
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
+        	Connection connection = null;
+        	PreparedStatement preparedStatement = null;
 
         try 
         {
             connection = DriverManager.getConnection(url, user, password);
             String insertQuery = "INSERT INTO users(user_id, username, password, test, first, second, third, participation) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             preparedStatement = connection.prepareStatement(insertQuery);
-
             preparedStatement.setString(1, id);
             preparedStatement.setString(2, name);
             preparedStatement.setString(3, pass);
