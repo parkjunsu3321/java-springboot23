@@ -17,6 +17,7 @@ public class ReactionController {
     public String fetchDataFromDB(@RequestParam(name = "inputValueId", required = false) String id, @RequestParam(name = "inputValuePass", required = false) String pass)
     {
         PostgreSQLConnection psc = new PostgreSQLConnection(id, pass);
+        return psc.Login();
     }
     @GetMapping("/db")
     public void joindb() 
