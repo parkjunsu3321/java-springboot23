@@ -13,8 +13,8 @@ public class ㄲController {
     public String getHello() {
         return "good";
     }
-    @GetMapping("/fieldtest")
-    public String fetchDataFromDB(@RequestParam(name = "input", required = false) String inputValue)
+    @GetMapping("/check")
+    public String fetchDataFromDB(@RequestParam(name = "inputValueId", required = false) String id, @RequestParam(name = "inputValuePass", required = false) String pass)
     {
         return inputValue;
     }
