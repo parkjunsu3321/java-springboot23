@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 
 public class PostgreSQLConnection {
 	String id, password;
@@ -82,14 +83,14 @@ public class PostgreSQLConnection {
 					
 					try (ResultSet resultSet = preparedStatement.executeQuery()) 
 					{
-						return "로그인 성공";
+						return "로그인 성공에 성공하셨습니다.";
 					}
 				}
 			}
 		}
 		catch (ClassNotFoundException | SQLException e) 
 		{
-            		return e.printStackTrace();
+            		return "아이디 또는 비밀번호가 일치 하지 않습니다.";
         	}
 	}
 }
