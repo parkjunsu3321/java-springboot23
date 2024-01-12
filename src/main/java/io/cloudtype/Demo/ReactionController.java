@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api")
-public class ㄲController {
+public class ReactionController {
 
     @GetMapping()
     public String getHello() {
@@ -16,7 +16,7 @@ public class ㄲController {
     @GetMapping("/check")
     public String fetchDataFromDB(@RequestParam(name = "inputValueId", required = false) String id, @RequestParam(name = "inputValuePass", required = false) String pass)
     {
-        return inputValue;
+        PostgreSQLConnection psc = new PostgreSQLConnection(id, pass);
     }
     @GetMapping("/db")
     public void joindb() 
