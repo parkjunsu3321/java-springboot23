@@ -83,14 +83,22 @@ public class PostgreSQLConnection
 					
 					try (ResultSet resultSet = preparedStatement.executeQuery()) 
 					{
-						return "로그인 성공";
+						if (resultSet.next()) 
+						{
+	                        			return "로그인 성공";
+	                    			} 
+						
+						else 
+	                    			{
+	                        			return "아이디 또는 비밀번호가 틀립니다.";
+	                    			}
 					}
 				}
 			}
 		}
 		catch (ClassNotFoundException | SQLException e) 
 		{
-            		return "아이디 또는 비밀번호가 틀립니다.";
+            		return "로그인 중에 문제가 생겼습니다. 관리자에게 문의 바랍니다.";
         	}
 	}
 }
