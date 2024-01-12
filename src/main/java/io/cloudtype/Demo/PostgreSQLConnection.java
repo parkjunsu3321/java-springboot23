@@ -24,44 +24,25 @@ public class PostgreSQLConnection
 	
 	public void Join(String id, String name, String pass)
 	{
-        	Connection connection = null;
-        	PreparedStatement preparedStatement = null;
-        	try 
+        	try (Connection connection = DriverManager.getConnection(url, user, sqlpassword);)
         	{
-            		connection = DriverManager.getConnection(url, user, sqlpassword);
             		String insertQuery = "INSERT INTO users(user_id, username, password, test, first, second, third, participation) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-            		preparedStatement = connection.prepareStatement(insertQuery);
-            		preparedStatement.setString(1, id);
-            		preparedStatement.setString(2, name);
-            		preparedStatement.setString(3, pass);
-            		preparedStatement.setBoolean(4, false); // test
-            		preparedStatement.setBoolean(5, false); // first
-            		preparedStatement.setBoolean(6, false); // second
-            		preparedStatement.setBoolean(7, false); // third
-            		preparedStatement.setInt(8, 0); // participation
-            		int rowsAffected = preparedStatement.executeUpdate();
+            		try(PreparedStatement ps = connection.prepareStatement(insertQuery);)
+            		{
+            			ps.setString(1, id);
+                		ps.setString(2, name);
+                		ps.setString(3, pass);
+                		ps.setBoolean(4, false); // test
+                		ps.setBoolean(5, false); // first
+                		ps.setBoolean(6, false); // second
+                		ps.setBoolean(7, false); // third
+                		ps.setInt(8, 0); // participation
+                		int rowsAffected = ps.executeUpdate();
+            		}
         	}
         	catch (SQLException e) 
         	{
-            	
-		} 
-        	finally 
-        	{
-            		try 
-            		{
-                		if (preparedStatement != null) 
-                		{
-                    			preparedStatement.close();
-                		}
-                		if (connection != null && !connection.isClosed()) 
-                		{
-                    			connection.close();
-                    		}
-            		} 
-            		catch (SQLException e) 
-            		{
-                		e.printStackTrace();
-            		}
+        		
         	}
 	}
 
