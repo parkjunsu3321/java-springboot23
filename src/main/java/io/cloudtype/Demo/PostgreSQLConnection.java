@@ -68,7 +68,7 @@ public class PostgreSQLConnection
 
 	public String Login()
 	{
-		String selectQuery = "SELECT * FROM users WHERE id = ? AND password = ?";
+		String selectQuery = "SELECT * FROM users WHERE user_id = ? AND password = ?";
 		try
 		{
 			Class.forName("org.postgresql.Driver");
