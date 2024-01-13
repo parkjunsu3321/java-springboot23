@@ -37,6 +37,15 @@ public class ReactionController {
     {
         private String id;
         private String pass;
+        public String getId()
+        {
+            return id;
+        }
+        public String getPass()
+        {
+            return pass;
+        }
+        
     }
 
 }
