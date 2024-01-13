@@ -13,7 +13,7 @@ public class ReactionController {
     public String getHello() {
         return "good";
     }
-    @GetMapping("/check")
+    @PutMapping("/check")
     public String fetchDataFromDB(@RequestParam(name = "id", required = false) String id, @RequestParam(name = "pass", required = false) String pass)
     {
         PostgreSQLConnection psc = new PostgreSQLConnection(id, pass);
