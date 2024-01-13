@@ -17,7 +17,17 @@ public class ReactionController {
     @PutMapping("/check")
     public String fetchDataFromDB(@RequestBody RequestData requestData) 
     {
-        return "d";
+        try
+        {
+            String id = requestData.getId();
+            String pass = requestData.getPass();
+            return "받은 ID: " + id + ", 비밀번호: " + pass;
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+            return "요청 처리 중 오류 발생: " + e.getMessage();
+        }
     }
 
     @GetMapping("/db")
