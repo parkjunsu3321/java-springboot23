@@ -14,11 +14,14 @@ public class ReactionController {
         return "good";
     }
     @PutMapping("/check")
-    public String fetchDataFromDB(@RequestParam(name = "id", required = false) String id, @RequestParam(name = "pass", required = false) String pass)
+    public ResponseEntity<String> fetchDataFromDB(@RequestBody RequestData requestData) 
     {
+        String id = requestData.getId();
+        String pass = requestData.getPass();
         PostgreSQLConnection psc = new PostgreSQLConnection(id, pass);
-        return id+pass+".";
+        return ResponseEntity.ok(id + pass + ".");
     }
+
     @GetMapping("/db")
     public void joindb() 
     {
