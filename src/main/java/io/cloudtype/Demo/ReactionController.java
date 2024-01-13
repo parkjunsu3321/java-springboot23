@@ -13,6 +13,7 @@ public class ReactionController {
     public String getHello() {
         return "good";
     }
+    
     @PutMapping("/check")
     public ResponseEntity<String> fetchDataFromDB(@RequestBody RequestData requestData) 
     {
