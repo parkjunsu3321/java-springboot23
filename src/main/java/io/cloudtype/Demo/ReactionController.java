@@ -17,8 +17,9 @@ public class ReactionController {
     @GetMapping("/check")
     public String fetchDataFromDB(@RequestParam(name = "id", required = false) String id, @RequestParam(name = "pass", required = false) String pass) 
     {
-    PostgreSQLConnection psc = new PostgreSQLConnection(id, pass);
-    return psc.Login();
+        //PostgreSQLConnection psc = new PostgreSQLConnection(id, pass);
+        //return psc.Login();
+        return "5";
     }
 
     @GetMapping("/db")
