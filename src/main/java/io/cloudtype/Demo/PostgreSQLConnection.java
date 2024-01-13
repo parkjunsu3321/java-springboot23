@@ -79,6 +79,7 @@ public class PostgreSQLConnection
 		}
 		catch (ClassNotFoundException | SQLException e) 
 		{
+			String str = e.getMessage();
             		return "로그인 중에 문제가 생겼습니다. 관리자에게 문의 바랍니다.";
         	}
 	}
