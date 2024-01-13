@@ -17,17 +17,7 @@ public class ReactionController {
     @PutMapping("/check")
     public String fetchDataFromDB(@RequestBody RequestData requestData) 
     {
-        try 
-        {
-            String id = requestData.getId();
-            String pass = requestData.getPass();
-            PostgreSQLConnection psc = new PostgreSQLConnection(id, pass);
-            return id+pass;
-        } 
-        catch (Exception e) 
-        {
-            return e.getMessage();
-        }
+        return "d";
     }
 
     @GetMapping("/db")
