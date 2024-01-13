@@ -20,7 +20,7 @@ public class ReactionController {
         String id = requestData.getId();
         String pass = requestData.getPass();
         PostgreSQLConnection psc = new PostgreSQLConnection(id, pass);
-        return psc.Login();
+        return id+pass;
     }
 
     @GetMapping("/db")
