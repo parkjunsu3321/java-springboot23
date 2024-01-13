@@ -15,12 +15,12 @@ public class ReactionController {
     }
     
     @PutMapping("/check")
-    public ResponseEntity<String> fetchDataFromDB(@RequestBody RequestData requestData) 
+    public String fetchDataFromDB(@RequestBody RequestData requestData) 
     {
         String id = requestData.getId();
         String pass = requestData.getPass();
         PostgreSQLConnection psc = new PostgreSQLConnection(id, pass);
-        return ResponseEntity.ok(id + pass + "");
+        return psc.Login();
     }
 
     @GetMapping("/db")
@@ -45,7 +45,6 @@ public class ReactionController {
         {
             return pass;
         }
-        
     }
 
 }
