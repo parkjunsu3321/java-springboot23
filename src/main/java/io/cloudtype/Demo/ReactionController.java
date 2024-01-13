@@ -32,4 +32,10 @@ public class ReactionController {
     public String gettest() {
         return "test";
     }
+    public class RequestData 
+    {
+        private String id;
+        private String pass;
+    }
+
 }
