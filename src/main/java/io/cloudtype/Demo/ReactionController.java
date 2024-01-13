@@ -14,20 +14,11 @@ public class ReactionController {
         return "good";
     }
     
-    @PutMapping("/login")
-    public String fetchDataFromDB(@RequestBody RequestData requestData) 
+    @GetMapping("/check")
+    public String fetchDataFromDB(@RequestParam(name = "id", required = false) String id, @RequestParam(name = "pass", required = false) String pass) 
     {
-        try
-        {
-            String id = requestData.getId();
-            String pass = requestData.getPass();
-            return "받은 ID: " + id + ", 비밀번호: " + pass;
-        } 
-        catch (Exception e) 
-        {
-            e.printStackTrace();
-            return "요청 처리 중 오류 발생: " + e.getMessage();
-        }
+    PostgreSQLConnection psc = new PostgreSQLConnection(id, pass);
+    return psc.Login();
     }
 
     @GetMapping("/db")
