@@ -14,7 +14,7 @@ public class ReactionController {
         return "good";
     }
     
-    @PutMapping("/check")
+    @PutMapping("/login")
     public String fetchDataFromDB(@RequestBody RequestData requestData) 
     {
         try
