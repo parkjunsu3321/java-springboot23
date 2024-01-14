@@ -28,8 +28,7 @@ public class ReactionController {
         String id = loginData.get("id");
         String pass = loginData.get("pass");
         PostgreSQLConnection psc = new PostgreSQLConnection(id, pass);
-        return id + pass;
-        // return psc.Login();
+        return psc.Login();
     }
 
 
