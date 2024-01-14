@@ -24,7 +24,8 @@ public class ReactionController {
     @PostMapping("/login")
     public String login(@RequestParam(name = "id", required = false) String id, @RequestParam(name = "pass", required = false) String pass) 
     {
-        return "Login successful!";
+        PostgreSQLConnection psc = new PostgreSQLConnection(id, pass);
+        return psc.Login();
     }
 
     @GetMapping("/db")
