@@ -21,8 +21,12 @@ public class ReactionController {
         return psc.Login();
     }
 
-    @PutMapping("/login")
-    
+    @PostMapping("/login")
+    public String login(@RequestBody LoginRequest loginRequest) 
+    {
+        return "Login successful!";
+    }
+
     @GetMapping("/db")
     public void joindb() 
     {
