@@ -22,7 +22,7 @@ public class ReactionController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password) 
+    public String login(@RequestParam String id, @RequestParam String password) 
     {
         return "Login successful!";
     }
