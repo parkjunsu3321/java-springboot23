@@ -22,12 +22,15 @@ public class ReactionController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam(name = "id", required = false) String id, @RequestParam(name = "pass", required = false) String pass) 
+    public String login(@RequestBody Map<String, String> loginData) 
     {
+        String id = loginData.get("id");
+        String pass = loginData.get("pass");
         PostgreSQLConnection psc = new PostgreSQLConnection(id, pass);
-        return id+pass;
-        //return psc.Login();
+        return id + pass;
+        // return psc.Login();
     }
+
 
     @GetMapping("/db")
     public void joindb() 
