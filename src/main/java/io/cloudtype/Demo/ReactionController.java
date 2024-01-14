@@ -21,6 +21,8 @@ public class ReactionController {
         return psc.Login();
     }
 
+    @PutMapping("/login")
+    
     @GetMapping("/db")
     public void joindb() 
     {
