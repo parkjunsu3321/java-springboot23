@@ -37,7 +37,7 @@ public class ReactionController {
     @GetMapping("/db")
     public boolean joindb() 
     {
-        return login_b;
+        return String.valueOf(login_b);
     }
     
     @GetMapping("/test")
