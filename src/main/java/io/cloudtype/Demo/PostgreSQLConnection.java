@@ -83,4 +83,38 @@ public class PostgreSQLConnection
             		return str;
         	}
 	}
+	public String Change_Password(String n_password)
+	{
+		String selectQuery = "UPDATE users SET password = ? WHERE user_id = ?;";
+		try
+		{
+			Class.forName("org.postgresql.Driver");
+			//데이터 베이스 연결
+			try (Connection connection = DriverManager.getConnection(url, user, sqlpassword)) 
+			{
+				//쿼리문 적용
+				try (PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) 
+				{
+					//아이디와 패스워드 설정
+					preparedStatement.setString(1, n_password);
+					preparedStatement.setString(2, id);
+					int resultSet =  preparedStatement.executeUpdate();
+					if (resultSet > 0) 
+					{
+						return "변경 성공";
+	                		} 
+					else
+					{
+						return "변경중 오류 발생!";
+					}
+				}
+			}
+		}
+		catch (ClassNotFoundException | SQLException e) 
+		{
+			String str = e.getMessage();
+			return str;
+        	}
+	}
+	
 }
