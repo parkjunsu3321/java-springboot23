@@ -26,7 +26,7 @@ public class ReactionController {
     }
 
     @PutMapping("/change")
-    public String login(@RequestBody Map<String, String> loginData) 
+    public String Id_Change(@RequestBody Map<String, String> loginData) 
     {
         String id = loginData.get("id");
         String pass = loginData.get("pass");
