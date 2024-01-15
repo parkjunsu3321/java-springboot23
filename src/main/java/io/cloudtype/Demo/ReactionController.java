@@ -16,7 +16,7 @@ public class ReactionController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody Map<String, String> loginData) 
+    public String Login(@RequestBody Map<String, String> loginData) 
     {
         String id = loginData.get("id");
         String pass = loginData.get("pass");
