@@ -11,10 +11,17 @@ import java.util.Map;
 public class ReactionController {
     boolean login_b = false;
     @GetMapping()
-    public String getHello() {
+    public String getHello() 
+    {
         return "good";
     }
 
+    @GetMapping("/exit")
+    public void ExitonClose() 
+    {
+        login_b = false;
+    }
+    
     @PostMapping("/login")
     public String Login(@RequestBody Map<String, String> loginData) 
     {
@@ -45,18 +52,4 @@ public class ReactionController {
     {
         return "test";
     }
-    public class RequestData 
-    {
-        private String id;
-        private String pass;
-        public String getId()
-        {
-            return id;
-        }
-        public String getPass()
-        {
-            return pass;
-        }
-    }
-
 }
