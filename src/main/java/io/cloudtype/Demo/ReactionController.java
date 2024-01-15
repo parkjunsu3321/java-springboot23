@@ -33,12 +33,16 @@ public class ReactionController {
     }
 
     @PutMapping("/change")
-    public String Id_Change(@RequestBody Map<String, String> loginData) 
+    public String Id_Change(@RequestParam(name = "id", required = false) String new_id) 
     {
-        String id = loginData.get("id");
-        String pass = loginData.get("pass");
-        PostgreSQLConnection psc = new PostgreSQLConnection(id, pass);
-        return psc.Login();
+        if(login_b)
+        {
+            return new_id;
+        }
+        else
+        {
+            return "로그인 하세여.";
+        }
     }
 
     @GetMapping("/db")
