@@ -9,7 +9,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api")
 public class ReactionController {
-
+    boolean login = false;
     @GetMapping()
     public String getHello() {
         return "good";
@@ -21,6 +21,7 @@ public class ReactionController {
         String id = loginData.get("id");
         String pass = loginData.get("pass");
         PostgreSQLConnection psc = new PostgreSQLConnection(id, pass);
+        login = true;
         return psc.Login();
     }
 
