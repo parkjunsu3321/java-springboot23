@@ -35,7 +35,7 @@ public class ReactionController {
     }
 
     @GetMapping("/db")
-    public void joindb() 
+    public boolean joindb() 
     {
         return login_b;
     }
