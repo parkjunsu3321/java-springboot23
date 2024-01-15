@@ -14,13 +14,6 @@ public class ReactionController {
     public String getHello() {
         return "good";
     }
-    
-    @GetMapping("/check")
-    public String fetchDataFromDB(@RequestParam(name = "id", required = false) String id, @RequestParam(name = "pass", required = false) String pass) 
-    {
-        PostgreSQLConnection psc = new PostgreSQLConnection(id, pass);
-        return psc.Login();
-    }
 
     @PostMapping("/login")
     public String login(@RequestBody Map<String, String> loginData) 
@@ -31,6 +24,14 @@ public class ReactionController {
         return psc.Login();
     }
 
+    @PutMapping("/change")
+    public String login(@RequestBody Map<String, String> loginData) 
+    {
+        String id = loginData.get("id");
+        String pass = loginData.get("pass");
+        PostgreSQLConnection psc = new PostgreSQLConnection(id, pass);
+        return psc.Login();
+    }
 
     @GetMapping("/db")
     public void joindb() 
