@@ -41,7 +41,8 @@ public class ReactionController {
     }
     
     @GetMapping("/test")
-    public String gettest() {
+    public String gettest() 
+    {
         return "test";
     }
     public class RequestData 
