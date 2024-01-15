@@ -33,11 +33,11 @@ public class ReactionController {
     }
 
     @PutMapping("/change")
-    public String Id_Change(@RequestParam(name = "id", required = false) String new_id) 
+    public String Id_Change(@RequestParam(name = "id", required = false) String n_pass) 
     {
         if(login_b)
         {
-            return new_id;
+            return n_pass;
         }
         else
         {
