@@ -9,6 +9,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api")
 public class ReactionController {
+    PostgreSQLConnection psc;
     boolean login_b = false;
     @GetMapping()
     public String getHello() 
@@ -27,7 +28,7 @@ public class ReactionController {
     {
         String id = loginData.get("id");
         String pass = loginData.get("pass");
-        PostgreSQLConnection psc = new PostgreSQLConnection(id, pass);
+        psc = new PostgreSQLConnection(id, pass);
         login_b = true;
         return psc.Login();
     }
@@ -37,7 +38,7 @@ public class ReactionController {
     {
         if(login_b)
         {
-            return n_pass;
+            return psc.Change_Password(n_pass);
         }
         else
         {
