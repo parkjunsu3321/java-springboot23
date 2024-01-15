@@ -42,7 +42,7 @@ public class ReactionController {
         }
         else
         {
-            return "로그인 하세여.";
+            return "로그인 하세여!";
         }
     }
 
