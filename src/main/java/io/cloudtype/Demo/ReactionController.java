@@ -46,7 +46,7 @@ public class ReactionController {
         }
     }
 
-    @DeleteMapping("/delete${id}")
+    @DeleteMapping("/delete")
     public String deleteMovie(@RequestParam(name = "id", required = false) String id) 
     {
         return id;
