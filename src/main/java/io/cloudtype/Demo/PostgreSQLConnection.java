@@ -116,5 +116,33 @@ public class PostgreSQLConnection
 			return str;
         	}
 	}
-	
+	public String DeleteId() 
+	{
+        String deleteQuery = "DELETE FROM users WHERE user_id = ?";
+        try 
+	{
+            Class.forName("org.postgresql.Driver");
+            try (Connection connection = DriverManager.getConnection(url, user, sqlpassword)) 
+            {
+                try (PreparedStatement ps = connection.prepareStatement(deleteQuery)) 
+                {
+                    ps.setString(1, id);
+                    int rowsAffected = ps.executeUpdate();
+                    if (rowsAffected > 0) 
+                    {
+                        return "삭제 성공";
+                    } 
+                    else
+                    {
+                        return "삭제 실패. 해당 아이디가 존재하지 않습니다.";
+                    }
+                }
+            }
+        } 
+        catch (ClassNotFoundException | SQLException e) 
+        {
+            String str = e.getMessage();
+            return str;
+        }
+    }
 }
