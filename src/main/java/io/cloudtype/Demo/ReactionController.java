@@ -21,6 +21,7 @@ public class ReactionController {
     public void ExitonClose() 
     {
         login_b = false;
+        psc = null;
     }
     
     @PostMapping("/login")
