@@ -46,6 +46,12 @@ public class ReactionController {
         }
     }
 
+    @DeleteMapping("/delete")
+    public String deleteMovie(@PathVariable int id) 
+    {
+        return "삭제";
+    }
+    
     @GetMapping("/db")
     public String joindb() 
     {
