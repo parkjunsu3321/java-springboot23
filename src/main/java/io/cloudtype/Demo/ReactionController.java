@@ -46,7 +46,7 @@ public class ReactionController {
         }
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete${id}")
     public String deleteMovie(@PathVariable int id) 
     {
         return "삭제";
