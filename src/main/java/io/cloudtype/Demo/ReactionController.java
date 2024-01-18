@@ -34,7 +34,7 @@ public class ReactionController {
     }
 
     @PutMapping("/change")
-    public String Id_Change(@RequestParam(name = "id", required = false) String n_pass) 
+    public String Id_Change(@RequestParam(name = "pass", required = false) String n_pass) 
     {
         if(login_b)
         {
@@ -47,7 +47,7 @@ public class ReactionController {
     }
 
     @DeleteMapping("/delete${id}")
-    public String deleteMovie(@PathVariable String id) 
+    public String deleteMovie(@RequestParam(name = "id", required = false) String id) 
     {
         return id;
     }
