@@ -145,4 +145,37 @@ public class PostgreSQLConnection
             return str;
         }
     }
+
+     public String getInfo() 
+     {
+        String[] str = new String[3];
+        String selectQuery = "SELECT username, user_id, participation FROM users WHERE user_id = '" + id + "'";
+        try 
+        {
+            Class.forName("org.postgresql.Driver");
+            try (Connection connection = DriverManager.getConnection(url, user, sqlpassword)) 
+            {
+                try (PreparedStatement ps = connection.prepareStatement(selectQuery)) 
+                {
+                    ResultSet resultSet = ps.executeQuery();
+                    if (resultSet.next()) 
+                    {
+                        str[0] = resultSet.getString("username");
+                        str[1] = resultSet.getString("user_id");
+                        str[2] = resultSet.getString("participation");
+                        return str[0] + str[1] + str[2];
+                    } 
+                    else 
+                    {
+                        return "로그인 실패. 아이디 또는 비밀번호가 잘못되었습니다.";
+                    }
+                }
+            }
+        } 
+        catch (ClassNotFoundException | SQLException e) 
+        {
+            String str1 = e.getMessage();
+            return str1;
+        }
+     }
 }
