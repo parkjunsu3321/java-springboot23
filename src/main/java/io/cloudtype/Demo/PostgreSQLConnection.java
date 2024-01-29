@@ -46,7 +46,7 @@ public class PostgreSQLConnection
         	}
 	}
 
-	public String Login()
+	public boolean Login()
 	{
 		String selectQuery = "SELECT * FROM users WHERE user_id = ? AND password = ?";
 		try
@@ -66,12 +66,12 @@ public class PostgreSQLConnection
 					{
 						if (resultSet.next()) 
 						{
-	                        			return "로그인 성공";
+	                        			return true;
 	                    			} 
 						
 						else 
 	                    			{
-	                        			return id+password+"아이디 또는 패스워드가 잘못되었습니다!";
+	                        			return false;
 	                    			}
 					}
 				}
@@ -79,8 +79,7 @@ public class PostgreSQLConnection
 		}
 		catch (ClassNotFoundException | SQLException e) 
 		{
-			String str = e.getMessage();
-            		return str;
+			return false;
         	}
 	}
 	public String Change_Password(String n_password)
