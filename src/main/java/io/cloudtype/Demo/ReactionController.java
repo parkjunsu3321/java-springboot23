@@ -30,8 +30,16 @@ public class ReactionController {
         String id = loginData.get("id");
         String pass = loginData.get("pass");
         psc = new PostgreSQLConnection(id, pass);
-        login_b = true;
-        return psc.Login();
+        login_b = psc.Login();
+        if(login_b == true)
+        {
+            
+        }
+        else
+        {
+            psc = null;
+        }
+        return login_b;
     }
 
     @PutMapping("/change")
