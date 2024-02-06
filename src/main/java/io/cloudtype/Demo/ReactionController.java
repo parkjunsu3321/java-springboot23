@@ -45,7 +45,7 @@ public class ReactionController {
     @PostMapping("/logout")
     public boolean React_loginout() 
     {
-        psc = null
+        psc = null;
         login_b = false;
         return true;
     }
