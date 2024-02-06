@@ -42,6 +42,14 @@ public class ReactionController {
         return login_b;
     }
 
+    @PostMapping("/loginout")
+    public boolean React_loginout() 
+    {
+        psc = null
+        login_b = false;
+        return true;
+    }
+    
     @PutMapping("/change")
     public String Id_Change(@RequestParam(name = "pass", required = false) String n_pass) 
     {
