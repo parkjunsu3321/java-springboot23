@@ -42,7 +42,7 @@ public class ReactionController {
         return login_b;
     }
 
-    @PostMapping("/loginout")
+    @PostMapping("/logout")
     public boolean React_loginout() 
     {
         psc = null
