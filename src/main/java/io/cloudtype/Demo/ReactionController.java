@@ -49,6 +49,13 @@ public class ReactionController {
         login_b = false;
         return true;
     }
+
+    @PostMapping("/checkid")
+    public boolean React_loginout(@RequestBody Map<String, String> loginData) 
+    {
+        String id = loginData.get("id");
+        return psc.CheckId(id);
+    }
     
     @PutMapping("/change")
     public String Id_Change(@RequestParam(name = "pass", required = false) String n_pass) 
