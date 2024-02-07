@@ -41,12 +41,11 @@ public class PostgreSQLConnection
 					{
 						if (resultSet.next()) 
 						{
-	                        			return true;
+	                        			return false;
 	                    			} 
-						
 						else 
 	                    			{
-	                        			return false;
+	                        			return true;
 	                    			}
 					}
 				}
@@ -54,7 +53,7 @@ public class PostgreSQLConnection
 		}
 		catch (ClassNotFoundException | SQLException e) 
 		{
-			return true;
+			return false;
         	}
 	}
 	
