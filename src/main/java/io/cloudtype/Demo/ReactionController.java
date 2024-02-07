@@ -86,7 +86,7 @@ public class ReactionController {
         return psc.Join(id, name, password);
     }
 
-    @PostMapping("/api/info")
+    @PostMapping("/info")
     public String[] handlePostRequest() 
     {
         return psc.getInfo();
