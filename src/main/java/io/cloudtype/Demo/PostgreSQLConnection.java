@@ -21,6 +21,42 @@ public class PostgreSQLConnection
     		this.id = id;
 		this.password = password;
 	}
+
+	public boolean CheckId(String check)
+	{
+		String selectQuery = "SELECT * FROM users WHERE user_id = ?";
+		try
+		{
+			Class.forName("org.postgresql.Driver");
+			//데이터 베이스 연결
+			try (Connection connection = DriverManager.getConnection(url, user, sqlpassword)) 
+			{
+				//쿼리문 적용
+				try (PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) 
+				{
+					//아이디와 패스워드 설정
+					preparedStatement.setString(1, check);
+					
+					try (ResultSet resultSet = preparedStatement.executeQuery()) 
+					{
+						if (resultSet.next()) 
+						{
+	                        			return true;
+	                    			} 
+						
+						else 
+	                    			{
+	                        			return false;
+	                    			}
+					}
+				}
+			}
+		}
+		catch (ClassNotFoundException | SQLException e) 
+		{
+			return true;
+        	}
+	}
 	
 	public void Join(String id, String name, String pass)
 	{
@@ -82,6 +118,7 @@ public class PostgreSQLConnection
 			return false;
         	}
 	}
+	
 	public String Change_Password(String n_password)
 	{
 		String selectQuery = "UPDATE users SET password = ? WHERE user_id = ?;";
