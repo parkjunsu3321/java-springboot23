@@ -54,6 +54,7 @@ public class ReactionController {
     public boolean React_loginout(@RequestBody Map<String, String> loginData) 
     {
         String id = loginData.get("id");
+        psc = new PostgreSQLConnection();
         return psc.CheckId(id);
     }
     
