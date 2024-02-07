@@ -9,7 +9,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api")
 public class ReactionController {
-    PostgreSQLConnection psc;
+    PostgreSQLConnection psc = new PostgreSQLConnection();
     boolean login_b = false;
     @GetMapping()
     public String getHello() 
@@ -21,7 +21,7 @@ public class ReactionController {
     public void ExitonClose() 
     {
         login_b = false;
-        psc = null;
+        psc = new PostgreSQLConnection();
     }
     
     @PostMapping("/login")
@@ -37,7 +37,8 @@ public class ReactionController {
         }
         else
         {
-            psc = null;
+            
+        psc = new PostgreSQLConnection();
         }
         return login_b;
     }
@@ -45,7 +46,7 @@ public class ReactionController {
     @PostMapping("/logout")
     public boolean React_loginout() 
     {
-        psc = null;
+        psc = new PostgreSQLConnection();
         login_b = false;
         return true;
     }
@@ -54,7 +55,6 @@ public class ReactionController {
     public boolean React_loginout(@RequestBody Map<String, String> loginData) 
     {
         String id = loginData.get("id");
-        psc = new PostgreSQLConnection();
         return psc.CheckId(id);
     }
     
@@ -77,15 +77,12 @@ public class ReactionController {
         return id;
     }
     
-    @GetMapping("/db")
-    public String joindb() 
+    @GetMapping("/Join")
+    public boolean joindb(@RequestBody Map<String, String> JoinData) 
     {
-        return String.valueOf(login_b);
-    }
-    
-    @GetMapping("/test")
-    public String gettest() 
-    {
-        return "test";
+        String id = JoinData.get("id");
+        String name = JoinData.get("name");
+        String password = JoinData.get("pw");
+        return psc.Join(id, name, password);
     }
 }
