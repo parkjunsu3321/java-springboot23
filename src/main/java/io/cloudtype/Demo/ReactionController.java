@@ -77,7 +77,7 @@ public class ReactionController {
         return id;
     }
     
-    @GetMapping("/join")
+    @PostMapping("/join")
     public boolean joindb(@RequestBody Map<String, String> JoinData) 
     {
         String id = JoinData.get("id");
