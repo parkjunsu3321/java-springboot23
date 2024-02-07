@@ -13,7 +13,7 @@ public class PostgreSQLConnection
         String sqlpassword = "3321";
 	public PostgreSQLConnection()
 	{
-    		Join("3213", "이상한", "aaa3321");
+		
 	}
 
 	public PostgreSQLConnection(String id, String password)
