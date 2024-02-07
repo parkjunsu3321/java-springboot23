@@ -85,4 +85,10 @@ public class ReactionController {
         String password = JoinData.get("pw");
         return psc.Join(id, name, password);
     }
+
+    @PostMapping("/api/info")
+    public String[] handlePostRequest() 
+    {
+        return psc.getInfo();
+    }
 }
