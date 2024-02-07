@@ -210,7 +210,7 @@ public class PostgreSQLConnection
         } 
         catch (ClassNotFoundException | SQLException e) 
         {
-            String str1 = e.getMessage();
+            str[0] = e.getMessage();
             return str;
         }
      }
