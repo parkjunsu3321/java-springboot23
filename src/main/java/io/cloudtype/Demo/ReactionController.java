@@ -12,9 +12,9 @@ public class ReactionController {
     PostgreSQLConnection psc = new PostgreSQLConnection();
     boolean login_b = false;
     @GetMapping()
-    public String getHello() 
+    public boolean getlogin_b() 
     {
-        return "good";
+        return login_b;
     }
 
     @GetMapping("/exit")
