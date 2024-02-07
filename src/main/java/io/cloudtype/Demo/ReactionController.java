@@ -91,11 +91,6 @@ public class ReactionController {
     {
         String[] str = new String[3];
         str = psc.getInfo();
-        String[] fake = new String[3];
-        fake[0] = "힣";
-        fake[1] = "릴";
-        fake[2] = "빕";
-        
-        return fake;
+        return str;
     }
 }
