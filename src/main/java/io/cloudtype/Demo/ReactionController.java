@@ -89,6 +89,8 @@ public class ReactionController {
     @PostMapping("/info")
     public String[] handlePostRequest() 
     {
-        return psc.getInfo();
+        String[] str = new String[3];
+        str = psc.getInfo();
+        return str;
     }
 }
