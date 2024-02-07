@@ -57,7 +57,7 @@ public class PostgreSQLConnection
         	}
 	}
 	
-	public void Join(String id, String name, String pass)
+	public boolean Join(String id, String name, String pass)
 	{
         	try (Connection connection = DriverManager.getConnection(url, user, sqlpassword);)
         	{
@@ -74,10 +74,11 @@ public class PostgreSQLConnection
                 		ps.setInt(8, 0); // participation
                 		int rowsAffected = ps.executeUpdate();
             		}
+			return true;
         	}
         	catch (SQLException e) 
         	{
-        		
+        		return false;
         	}
 	}
 
