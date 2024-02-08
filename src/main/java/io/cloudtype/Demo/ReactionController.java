@@ -100,7 +100,15 @@ public class ReactionController {
         String pass = loginData.get("pw");
         if(pass.equals(psc.password))
         {
-            return psc.DeleteId();
+            if(psc.DeleteId()==true)
+            {
+                psc = new PostgreSQLConnection();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
         {
