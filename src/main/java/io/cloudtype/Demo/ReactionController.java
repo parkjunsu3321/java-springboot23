@@ -110,9 +110,10 @@ public class ReactionController {
         String pass = loginData.get("pw");
         if(pass.equals(psc.password))
         {
-            if(psc.Change_Password()==true)
+            String newPass = loginData.get("new_pw"); // 새로운 비밀번호 추가
+            if(psc.Change_Password(newPass)==true) // 변경된 부분
             {
-                psc.password = pass;
+                psc.password = newPass; // 새로운 비밀번호로 갱신
                 return true;
             }
             else
