@@ -98,7 +98,7 @@ public class ReactionController {
     public boolean DropUser(@RequestBody Map<String, String> loginData)
     {
         String pass = loginData.get("pw");
-        if(pass == psc.password)
+        if(pass.equals(psc.password))
         {
             return true;
         }
