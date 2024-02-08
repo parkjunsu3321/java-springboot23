@@ -166,19 +166,18 @@ public class PostgreSQLConnection
                     int rowsAffected = ps.executeUpdate();
                     if (rowsAffected > 0) 
                     {
-                        return "삭제 성공";
+                        return true;
                     } 
                     else
                     {
-                        return "삭제 실패. 해당 아이디가 존재하지 않습니다.";
+                        return false;
                     }
                 }
             }
         } 
         catch (ClassNotFoundException | SQLException e) 
         {
-            String str = e.getMessage();
-            return str;
+            return false;
         }
     }
 
