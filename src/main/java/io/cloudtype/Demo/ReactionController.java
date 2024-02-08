@@ -95,9 +95,10 @@ public class ReactionController {
     }
 
     @PostMapping("/drop")
-    public boolean DropUser(@RequestParam(name = "pw", required = false) String n_pass) 
+    public boolean DropUser(@RequestBody Map<String, String> loginData)
     {
-        if(n_pass == psc.password)
+        String pass = loginData.get("pw");
+        if(pass == psc.password)
         {
             return true;
         }
