@@ -152,7 +152,7 @@ public class PostgreSQLConnection
 			return str;
         	}
 	}
-	public String DeleteId() 
+	public boolean DeleteId() 
 	{
         String deleteQuery = "DELETE FROM users WHERE user_id = ?";
         try 
