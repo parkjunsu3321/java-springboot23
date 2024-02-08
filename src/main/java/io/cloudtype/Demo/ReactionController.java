@@ -58,19 +58,6 @@ public class ReactionController {
         return psc.CheckId(id);
     }
     
-    @PutMapping("/change")
-    public String Id_Change(@RequestParam(name = "pass", required = false) String n_pass) 
-    {
-        if(login_b)
-        {
-            return psc.Change_Password(n_pass);
-        }
-        else
-        {
-            return "로그인 하세여!";
-        }
-    }
-
     @DeleteMapping("/delete")
     public String deleteMovie(@RequestParam(name = "id", required = false) String id) 
     {
