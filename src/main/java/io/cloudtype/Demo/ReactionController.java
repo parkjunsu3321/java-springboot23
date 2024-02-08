@@ -100,7 +100,7 @@ public class ReactionController {
         String pass = loginData.get("pw");
         if(pass.equals(psc.password))
         {
-            return true;
+            return psc.DeleteId();
         }
         else
         {
