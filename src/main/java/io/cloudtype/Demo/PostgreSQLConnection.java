@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class PostgreSQLConnection 
 {
-	String id, password;
+	public String id, password;
 	String url = "jdbc:postgresql://svc.sel4.cloudtype.app:32752/reaction_db";
         String user = "root";
         String sqlpassword = "3321";
