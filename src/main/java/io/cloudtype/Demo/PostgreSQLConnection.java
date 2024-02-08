@@ -137,7 +137,7 @@ public class PostgreSQLConnection
 					int resultSet =  preparedStatement.executeUpdate();
 					if (resultSet > 0) 
 					{
-						return true";
+						return true;
 	                		} 
 					else
 					{
