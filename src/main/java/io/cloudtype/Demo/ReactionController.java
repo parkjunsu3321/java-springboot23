@@ -102,6 +102,7 @@ public class ReactionController {
         {
             if(psc.DeleteId()==true)
             {
+                login_b = false;
                 psc = new PostgreSQLConnection();
                 return true;
             }
