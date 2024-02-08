@@ -87,10 +87,23 @@ public class ReactionController {
     }
 
     @PostMapping("/info")
-    public String[] handlePostRequest() 
+    public String[] getInfoRequest() 
     {
         String[] str = new String[3];
         str = psc.getInfo();
         return str;
+    }
+
+    @PostMapping("/drop")
+    public boolean DropUser(@RequestParam(name = "pass", required = false) String n_pass) 
+    {
+        if(n_pass == psc.password)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
