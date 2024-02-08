@@ -116,4 +116,27 @@ public class ReactionController {
             return false;
         }
     }
+
+    @PostMapping("/change")
+    public boolean DropUser(@RequestBody Map<String, String> loginData)
+    {
+        String pass = loginData.get("pw");
+        if(pass.equals(psc.password))
+        {
+            if(psc.DeleteId()==true)
+            {
+                login_b = false;
+                psc = new PostgreSQLConnection();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
