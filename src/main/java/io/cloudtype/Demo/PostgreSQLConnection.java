@@ -119,7 +119,7 @@ public class PostgreSQLConnection
         	}
 	}
 	
-	public String Change_Password(String n_password)
+	public boolean Change_Password(String n_password)
 	{
 		String selectQuery = "UPDATE users SET password = ? WHERE user_id = ?;";
 		try
@@ -137,21 +137,21 @@ public class PostgreSQLConnection
 					int resultSet =  preparedStatement.executeUpdate();
 					if (resultSet > 0) 
 					{
-						return "변경 성공";
+						return true";
 	                		} 
 					else
 					{
-						return "변경중 오류 발생!";
+						return false;
 					}
 				}
 			}
 		}
 		catch (ClassNotFoundException | SQLException e) 
 		{
-			String str = e.getMessage();
-			return str;
+			return false;
         	}
 	}
+	
 	public boolean DeleteId() 
 	{
         String deleteQuery = "DELETE FROM users WHERE user_id = ?";
