@@ -109,6 +109,6 @@ public class ReactionController {
     {
         String pass = loginData.get("pw");
         String newPass = loginData.get("new_pw");
-        
+        return pass+newPass;
     }
 }
