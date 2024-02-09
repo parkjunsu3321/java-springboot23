@@ -105,25 +105,10 @@ public class ReactionController {
     }
 
     @PostMapping("/change")
-    public boolean ChangePassword(@RequestBody Map<String, String> loginData)
+    public String ChangePassword(@RequestBody Map<String, String> loginData)
     {
         String pass = loginData.get("pw");
-        if(pass.equals(psc.password))
-        {
-            String newPass = loginData.get("new_pw"); // 새로운 비밀번호 추가
-            if(psc.Change_Password(newPass)==true) // 변경된 부분
-            {
-                psc.password = newPass; // 새로운 비밀번호로 갱신
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
+        String newPass = loginData.get("new_pw");
+        
     }
 }
