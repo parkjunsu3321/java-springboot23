@@ -128,8 +128,9 @@ public class ReactionController {
     }
 
     @GetMapping("/textembedding")
-    public void EmbeddingFun(double time, String answer, String str)
+    public void EmbeddingFun(String tag, double time, String answer, String str)
     {
-        
+        double score = 0;
+        pg.DataInputFun(tag, score);
     }
 }
