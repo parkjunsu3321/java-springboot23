@@ -214,5 +214,28 @@ public class PostgreSQLConnection
         }
      }
 
-
+     public void DataInputFun(String tag, double score)
+     {
+         String selectQuery = "UPDATE users SET " + tag + " = ? WHERE user_id = ?";
+         try
+         {
+             Class.forName("org.postgresql.Driver");
+             // 데이터베이스 연결
+             try (Connection connection = DriverManager.getConnection(url, user, sqlpassword)) 
+             {
+                 // 쿼리문 적용
+                 try (PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) 
+                 {
+                     // 아이디와 점수 설정
+                     preparedStatement.setDouble(1, score);
+                     preparedStatement.setString(2, id);
+                     
+                 }
+             }
+         }
+         catch (ClassNotFoundException | SQLException e) 
+         {
+        	 
+         }
+     }
 }
