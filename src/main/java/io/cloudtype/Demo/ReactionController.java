@@ -126,4 +126,10 @@ public class ReactionController {
             return false;
         }
     }
+
+    @GetMapping("/textembedding")
+    public void EmbeddingFun(double time, String answer, String str)
+    {
+        
+    }
 }
