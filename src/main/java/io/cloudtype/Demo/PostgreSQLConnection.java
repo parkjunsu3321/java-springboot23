@@ -235,7 +235,7 @@ public class PostgreSQLConnection
          }
          catch (ClassNotFoundException | SQLException e) 
          {
-        	 
+        	 System.out.println(e.getMessage());
          }
      }
 }
