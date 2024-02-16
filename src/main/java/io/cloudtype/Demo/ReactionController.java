@@ -128,9 +128,22 @@ public class ReactionController {
     }
 
     @GetMapping("/textembedding")
-    public void EmbeddingFun(String tag, double time, String answer, String str)
+    public void EmbeddingFun(@RequestParam(name = "tag") String tag, @RequestParam(name = "time") double time, @RequestParam(name = "accuracy") double accuracy)
     {
         double score = 0;
+        if (accuracy >= 99) 
+        {
+            score += 10;
+        }
+        else if (accuracy >= 97) 
+        {
+            score += 7;
+        }
+        else if (accuracy >= 95) 
+        {
+            score += 5;
+        }
+        score += time;
         pg.DataInputFun(tag, score);
     }
 }
