@@ -144,6 +144,6 @@ public class ReactionController {
             score += 5;
         }
         score += time;
-        pg.DataInputFun(tag, score);
+        psc.DataInputFun(tag, score);
     }
 }
