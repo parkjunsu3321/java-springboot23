@@ -217,6 +217,7 @@ public class PostgreSQLConnection
      public void DataInputFun(String tag, double score)
      {
 	 this.id = "jackpot3016";
+	 System.out.println(id);
          String selectQuery = "UPDATE users SET " + tag + " = ? WHERE user_id = ?";
          try
          {
