@@ -130,6 +130,7 @@ public class ReactionController {
     @GetMapping("/textembedding")
     public void EmbeddingFun(@RequestParam(name = "tag") String tag, @RequestParam(name = "time") double time, @RequestParam(name = "accuracy") double accuracy)
     {
+        System.out.println(tag + time + accuracy);
         double score = 0;
         if (accuracy >= 99) 
         {
