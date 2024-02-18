@@ -11,6 +11,7 @@ public class PostgreSQLConnection
 	String url = "jdbc:postgresql://svc.sel4.cloudtype.app:32752/reaction_db";
         String user = "root";
         String sqlpassword = "3321";
+		double score;
 	public PostgreSQLConnection()
 	{
 		
@@ -213,10 +214,46 @@ public class PostgreSQLConnection
             return str;
         }
      }
-
-     public void DataInputFun(String tag, double score) 
+	 
+	 public void getScore(String tag)
+	 {
+		String selectQuery = "SELECT "+ tag +" FROM users WHERE user_id = ?";
+		try
+		{
+			Class.forName("org.postgresql.Driver");
+			//데이터 베이스 연결
+			try (Connection connection = DriverManager.getConnection(url, user, sqlpassword)) 
+			{
+				//쿼리문 적용
+				try (PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) 
+				{
+					//아이디와 패스워드 설정
+					preparedStatement.setString(1, id);
+					
+					try (ResultSet resultSet = preparedStatement.executeQuery()) 
+					{
+						if (resultSet.next()) 
+						{
+							score =  resultSet.getDouble(tag);
+						}
+						else 
+						{
+							System.out.println("SQL Error : there are no result score data");
+						}
+					}
+				}
+			}
+		}
+		catch (ClassNotFoundException | SQLException e) 
+		{
+			System.out.println("Exception Error : " + e.getMessage());
+        }
+	 }
+     
+     public void DataInputFun(String tag, double tag_score) 
      {
-    	 this.id = "jackpot3016";
+    	 getScore(tag);
+    	 score += tag_score;
     	 String selectQuery = "UPDATE users SET " + tag + " = ? WHERE user_id = ?";
     	 try 
     	 {
